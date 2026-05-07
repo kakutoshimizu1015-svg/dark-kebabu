@@ -8,11 +8,12 @@ type SceneFrameProps = {
   state: GameState;
   children: ReactNode;
   action: ReactNode;
+  className?: string;
 };
 
-export function SceneFrame({ kicker, title, description, state, children, action }: SceneFrameProps) {
+export function SceneFrame({ kicker, title, description, state, children, action, className }: SceneFrameProps) {
   return (
-    <section className="scene">
+    <section className={`scene ${className ?? ""}`}>
       <header className="scene-header">
         <div>
           <p className="eyebrow">{kicker}</p>

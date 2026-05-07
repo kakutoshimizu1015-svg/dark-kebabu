@@ -1,0 +1,58 @@
+import type { Goal } from "../types";
+
+export const goals: Goal[] = [
+  {
+    id: "bring-five-ingredients",
+    title: "今夜、素材を5個持ち帰る",
+    description: "裏路地から素材を5個以上回収して、仕込みの選択肢を増やす。",
+    type: "shortTerm",
+    condition: { kind: "ingredientsCollectedAtLeast", value: 5 },
+    reward: { kind: "ingredient", id: "static-salt", label: "混線塩の出現率アップ" },
+    completed: false,
+  },
+  {
+    id: "low-police-sales",
+    title: "警察注目度を10以上上げずに営業する",
+    description: "騒ぎを抑えたまま売る。汚いのに、見つからない。",
+    type: "shortTerm",
+    condition: { kind: "policeIncreaseAtMost", value: 10 },
+    reward: { kind: "explorationNode", id: "warm-drain", label: "安全な帰還ルートの噂" },
+    completed: false,
+  },
+  {
+    id: "feed-bandaged-man",
+    title: "包帯男に好みのケバブを提供する",
+    description: "包帯男が満足する味を出して、焦げた記憶を少し進める。",
+    type: "shortTerm",
+    condition: { kind: "servedCustomerPositive", customerId: "bandaged-man" },
+    reward: { kind: "storyFragment", id: "bandaged-man-fire-record", label: "包帯男の火災記録" },
+    completed: false,
+  },
+  {
+    id: "feed-glow-tower",
+    title: "肉タワーに発光属性の素材を投入する",
+    description: "発光系素材を肉タワーへ入れて、FM88.8の混線を明るくする。",
+    type: "midTerm",
+    condition: { kind: "fedTowerAttribute", attribute: "glow", value: 3 },
+    reward: { kind: "sauce", id: "glow-yogurt", label: "発光ヨーグルト安定化" },
+    completed: false,
+  },
+  {
+    id: "hear-three-interference",
+    title: "FM88.8の混線放送を3回聞く",
+    description: "混線に耳を慣らし、先代の声に近づく。",
+    type: "midTerm",
+    condition: { kind: "heardRadioCategoryAtLeast", category: "interference", value: 3 },
+    reward: { kind: "radioBroadcast", id: "predecessor-knife", label: "先代の包丁研ぎ" },
+    completed: false,
+  },
+  {
+    id: "tower-level-three",
+    title: "肉タワーLv.3に到達する",
+    description: "余った肉を継ぎ足し、店の異常成長を次の段階へ進める。",
+    type: "longTerm",
+    condition: { kind: "meatTowerLevelAtLeast", value: 3 },
+    reward: { kind: "recipe", id: "tower-drip-special", label: "肉タワー滴りスペシャル" },
+    completed: false,
+  },
+];
